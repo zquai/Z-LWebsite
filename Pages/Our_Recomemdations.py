@@ -143,6 +143,7 @@ with tab2:
     st.write("Please enter an ID on Lucy's recomendations page")
 
     st.write('Your feedback is saved in the table at the bottom of the page and averaged below')
+    st.markdown('<p style="font-size:12px; color:gray;">If your rating is not showing, refresh the page.</p>', unsafe_allow_html=True)
 ########table of averages
     st.subheader("Average Ratings")
     if not ratings_df.empty:
@@ -223,11 +224,11 @@ with tab2:
 
     if username:  #checking if username is in place and allowing access to rating system
         #hongdae rating
-        rating_hongdae = st.radio("Rate Hongdae (1 to 5 stars):", options=[1, 2, 3, 4, 5], horizontal=True, key="hongdae_rating")
+        rating_taiwan = st.radio("Rate Taiwan (1 to 5 stars):", options=[1, 2, 3, 4, 5], horizontal=True, key="taiwan_rating")
 
-        if st.button("Submit Hongdae Rating"):
-            ratings_df = add_rating(ratings_df, RATINGS_FILE, username, "Hondgae", rating_hongdae)
-            st.success(f"Thank you, {username}, for your {rating_hongdae}-star rating for Hongdae!")
+        if st.button("Submit Taiwan Rating"):
+            ratings_df = add_rating(ratings_df, RATINGS_FILE, username, "Taiwan", rating_taiwan)
+            st.success(f"Thank you, {username}, for your {rating_taiwan}-star rating for Taiwan!")
 ###### end taiwan
 
     # Display Average Ratings
